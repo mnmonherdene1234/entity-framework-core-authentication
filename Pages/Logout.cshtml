@@ -1,0 +1,12 @@
+@page
+@model AuthenticationVideoOne.Pages.LogoutModel
+
+<form method="post">
+    <div class="row justify-content-center">
+        <p>Are you sure want to logout</p>
+        <p>
+            <button class="btn btn-danger" asp-page-handler="Logout">Yes</button>
+            <button class="btn btn-secondary" asp-page-handler="DontLogout">No</button>
+        </p>
+    </div>
+</form>

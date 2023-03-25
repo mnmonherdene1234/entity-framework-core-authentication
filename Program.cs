@@ -9,6 +9,11 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddDbContext<AuthDbContext>(options => options.UseInMemoryDatabase(databaseName: "AuthDB"));
 builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AuthDbContext>();
+builder.Services.ConfigureApplicationCookie(config =>
+{
+    config.LoginPath = "/Login";
+
+});
 
 var app = builder.Build();
 

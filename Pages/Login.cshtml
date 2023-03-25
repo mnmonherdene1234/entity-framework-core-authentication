@@ -1,0 +1,31 @@
+@page
+@model AuthenticationVideoOne.Pages.LoginModel
+
+<div class="container mt-5">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-sm-12 col-md-12 col-lg-4">
+            <h1 class="mb-3">Login</h1>
+            <form method="post">
+                <div class="text-danger" asp-validation-summary="All"></div>
+                <div class="mb-3">
+                    <label class="form-label" asp-for="Login.Email"></label>
+                    <input class="form-control" type="email" asp-for="Login.Email" />
+                    <span class="text-danger" asp-validation-for="Login.Email"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" asp-for="Login.Password"></label>
+                    <input class="form-control" type="password" asp-for="Login.Password" />
+                    <span class="text-danger" asp-validation-for="Login.Password"></span>
+                </div>
+                <div class="mb-3">
+                    <input class="form-check-input" type="checkbox" asp-for="Login.RememberMe"/>
+                    <label class="form-check-label" asp-for="Login.RememberMe"></label>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>

@@ -29,6 +29,29 @@ public class RegisterModel : PageModel
 
     public async Task<IActionResult> OnPostAsync()
     {
+        if (ModelState.IsValid)
+        {
+            var user = new IdentityUser
+            {
+                UserName = Register.Email,
+                Email = Register.Email
+            };
+
+            var result = await UserManager.CreateAsync(user, Register.Password);
+
+            if (result.Succeeded)
+            {
+                await SignInManager.SignInAsync(user, false);
+
+                return RedirectToPage("Index");
+            }
+
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError("", error.Description);
+            }
+        }
+
         return Page();
     }
 }
